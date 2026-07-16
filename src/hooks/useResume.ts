@@ -5,7 +5,7 @@ const STORAGE_KEY = "resumeforge_active_resume";
 
 function load(): ResumeData {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = sessionStorage.getItem(STORAGE_KEY);
     if (raw) return JSON.parse(raw);
   } catch {
     // fall through to empty
@@ -19,7 +19,7 @@ export function useResume() {
 
   useEffect(() => {
     const t = setTimeout(() => {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...resume, updatedAt: new Date().toISOString() }));
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify({ ...resume, updatedAt: new Date().toISOString() }));
       setSavedAt(new Date());
     }, 400);
     return () => clearTimeout(t);
