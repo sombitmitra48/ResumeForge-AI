@@ -18,8 +18,8 @@ export function EducationForm({ value, onChange }: { value: EducationEntry[]; on
   return (
     <div className="space-y-5">
       {value.map((entry) => (
-        <div key={entry.id} className="rounded-xl border border-line bg-white p-5">
-          <div className="mb-3 flex justify-end">
+        <div key={entry.id} className="rounded-xl border border-line bg-bg3 p-5">
+          <div className="mb-4 flex items-start justify-between">
             <button onClick={() => remove(entry.id)} className="text-ink-soft/50 hover:text-danger" aria-label="Remove education">
               <Trash2 size={15} />
             </button>

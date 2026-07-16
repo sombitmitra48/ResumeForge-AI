@@ -51,8 +51,8 @@ export function SkillsForm({
   return (
     <div className="space-y-5">
       {value.map((group) => (
-        <div key={group.id} className="rounded-xl border border-line bg-white p-5">
-          <div className="flex items-center gap-3">
+        <div key={group.id} className="rounded-xl border border-line bg-bg3 p-5">
+          <div className="mb-4 flex items-center justify-between">
             <Field
               label="Group name"
               value={group.label}
@@ -79,8 +79,8 @@ export function SkillsForm({
               value={draft[group.id] || ""}
               onChange={(e) => setDraft({ ...draft, [group.id]: e.target.value })}
               onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), addItem(group))}
-              placeholder="Type a skill and press Enter"
-              className="flex-1 rounded-lg border border-line bg-white px-3 py-1.5 text-sm outline-none focus:border-cobalt"
+              className="flex-1 rounded-sm border border-line bg-bg px-3 py-1.5 text-sm outline-none focus:border-cobalt"
+              placeholder="Add skill (e.g. React, Docker)"
             />
             <Button variant="ghost" size="sm" onClick={() => addItem(group)}>
               Add

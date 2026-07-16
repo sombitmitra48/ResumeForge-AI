@@ -1,29 +1,39 @@
 @import "tailwindcss";
 
 @theme {
-  /* Color tokens */
-  --color-ink: #14171f;
-  --color-ink-soft: #2b2f3a;
-  --color-paper: #f4f5f1;
-  --color-paper-dim: #e8e9e3;
-  --color-cobalt: #2f5cff;
-  --color-cobalt-dim: #e7ecff;
-  --color-amber: #f2b705;
+  /* Color tokens - Dark Theme */
+  --color-bg: #0b0c0f;
+  --color-bg2: #111318;
+  --color-bg3: #181a21;
+  
+  --color-gold: #c9a84c;
+  --color-gold-light: #e8c87a;
+  --color-gold-dim: rgba(201,168,76,0.15);
+  
+  --color-text: #f0ede6;
+  --color-text-muted: #8a8680;
+  --color-text-dim: #4a4845;
+  
+  --color-border: rgba(201,168,76,0.18);
+  
+  /* Legacy tokens mapped to dark theme so existing components don't break */
+  --color-ink: #f0ede6;
+  --color-ink-soft: #8a8680;
+  --color-paper: #0b0c0f;
+  --color-paper-dim: #111318;
+  --color-cobalt: #c9a84c;
+  --color-cobalt-dim: rgba(201,168,76,0.15);
+  --color-amber: #e8c87a;
   --color-success: #1fae6b;
-  --color-success-dim: #e3f6ec;
+  --color-success-dim: rgba(31,174,107,0.15);
   --color-danger: #e14b4b;
-  --color-danger-dim: #fbe9e9;
-  --color-line: #dadcd4;
+  --color-danger-dim: rgba(225,75,75,0.15);
+  --color-line: rgba(201,168,76,0.18);
 
   /* Fonts */
-  --font-display: "Fraunces", "Georgia", serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-}
-
-@font-face {
-  font-family: "Fraunces";
-  src: local("Fraunces");
+  --font-display: "Cormorant Garamond", "Georgia", serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
 }
 
 html {
@@ -31,19 +41,31 @@ html {
 }
 
 body {
-  background: var(--color-paper);
-  color: var(--color-ink);
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: var(--font-sans);
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* NOISE TEXTURE */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.4;
 }
 
 ::selection {
-  background: var(--color-cobalt);
-  color: white;
+  background: var(--color-gold);
+  color: var(--color-bg);
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-cobalt);
+  outline: 2px solid var(--color-gold);
   outline-offset: 2px;
 }
 
@@ -57,7 +79,7 @@ body {
 }
 
 .paper-shadow {
-  box-shadow: 0 1px 2px rgba(20, 23, 31, 0.04), 0 12px 32px -8px rgba(20, 23, 31, 0.18);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5), 0 0 0 1px var(--color-border);
 }
 
 @page {

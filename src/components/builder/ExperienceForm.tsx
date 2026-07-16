@@ -86,7 +86,7 @@ function ExperienceCard({
   }
 
   return (
-    <div className="rounded-xl border border-line bg-white p-5">
+    <div className="rounded-xl border border-line bg-bg3 p-5">
       <div className="mb-4 flex items-start justify-between">
         <GripVertical size={16} className="mt-2 text-ink-soft/30" />
         <button onClick={onRemove} className="text-ink-soft/50 hover:text-danger" aria-label="Remove experience">

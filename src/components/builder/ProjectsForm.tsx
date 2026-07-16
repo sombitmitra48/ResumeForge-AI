@@ -23,8 +23,8 @@ export function ProjectsForm({ value, onChange }: { value: ProjectEntry[]; onCha
   return (
     <div className="space-y-5">
       {value.map((entry) => (
-        <div key={entry.id} className="rounded-xl border border-line bg-white p-5">
-          <div className="mb-3 flex justify-end">
+        <div key={entry.id} className="rounded-xl border border-line bg-bg3 p-5">
+          <div className="mb-4 flex items-start justify-between">
             <button onClick={() => remove(entry.id)} className="text-ink-soft/50 hover:text-danger" aria-label="Remove project">
               <Trash2 size={15} />
             </button>

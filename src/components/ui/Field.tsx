@@ -7,11 +7,11 @@ interface FieldProps extends InputHTMLAttributes<HTMLInputElement> {
 export function Field({ label, className = "", ...rest }: FieldProps) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-ink-soft/70">
+      <span className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-text-muted">
         {label}
       </span>
       <input
-        className={`w-full rounded-lg border border-line bg-white px-3 py-2 text-sm text-ink placeholder:text-ink-soft/40 outline-none transition-colors focus:border-cobalt ${className}`}
+        className={`w-full rounded-sm border border-border bg-bg px-3 py-2 text-sm text-text placeholder:text-text-muted/40 outline-none transition-colors focus:border-gold shadow-inner ${className}`}
         {...rest}
       />
     </label>
@@ -25,11 +25,13 @@ interface TextAreaFieldProps extends TextareaHTMLAttributes<HTMLTextAreaElement>
 export function TextAreaField({ label, className = "", ...rest }: TextAreaFieldProps) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-medium uppercase tracking-wide text-ink-soft/70">
-        {label}
-      </span>
+      {label && (
+        <span className="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-text-muted">
+          {label}
+        </span>
+      )}
       <textarea
-        className={`w-full rounded-lg border border-line bg-white px-3 py-2 text-sm text-ink placeholder:text-ink-soft/40 outline-none transition-colors focus:border-cobalt resize-y ${className}`}
+        className={`w-full rounded-sm border border-border bg-bg px-3 py-2 text-sm text-text placeholder:text-text-muted/40 outline-none transition-colors focus:border-gold resize-y shadow-inner ${className}`}
         {...rest}
       />
     </label>

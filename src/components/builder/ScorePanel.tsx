@@ -12,7 +12,7 @@ export function ScorePanel({ resume }: { resume: ResumeData }) {
   const t = tone(overall);
 
   return (
-    <div className="rounded-xl border border-line bg-white p-5">
+    <div className="rounded-xl border border-line bg-bg3 p-5">
       <div className="flex items-center justify-between">
         <p className="text-xs font-medium uppercase tracking-wide text-ink-soft/70">ATS score</p>
         <span className={`font-[var(--font-mono)] text-lg font-semibold ${t.text}`}>{overall}</span>

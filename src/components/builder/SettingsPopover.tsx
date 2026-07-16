@@ -23,16 +23,16 @@ export function SettingsPopover() {
 
   return (
     <div className="relative">
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1.5 text-xs font-medium text-ink-soft hover:border-ink"
-      >
+        <button
+          onClick={() => setOpen(!open)}
+          className="flex items-center gap-1.5 rounded-sm border border-border bg-bg3 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.1em] text-text-muted hover:border-gold hover:text-gold transition-colors"
+        >
         <Settings size={13} />
         {connected ? "AI: OpenAI key" : "AI: offline demo"}
       </button>
 
       {open && (
-        <div className="absolute right-0 z-50 mt-2 w-72 rounded-xl border border-line bg-white p-4 paper-shadow">
+        <div className="absolute right-0 z-50 mt-2 w-72 rounded-sm border border-border bg-bg3 p-5 shadow-[0_20px_40px_rgba(0,0,0,0.5),0_0_0_1px_rgba(201,168,76,0.2)]">
           <div className="flex items-center justify-between">
             <p className="text-xs font-semibold uppercase tracking-wide text-ink-soft/70">AI provider</p>
             <button onClick={() => setOpen(false)} aria-label="Close"><X size={14} /></button>
